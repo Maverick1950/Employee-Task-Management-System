@@ -8,8 +8,7 @@ const CreateTask = () => {
   const [assignTo, setassignTo] = useState("");
   const [category, setcategory] = useState("");
 
-  const userdata = useContext(AuthContext);
-  const data = userdata.employees;
+  const { employees, addTaskToEmployee } = useContext(AuthContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -26,24 +25,22 @@ const CreateTask = () => {
       completed: false,
     };
 
-    data.forEach(function (elem) {
-      if (assignTo == elem.firstName) {
-        elem.tasks.push(newTask);
-      }
-    });
+    // Call context method to add task and update state
+    addTaskToEmployee(assignTo, newTask);
 
-    localStorage.setItem("employees", JSON.stringify(data));
-
+    // Clear form
     settaskTitle("");
     settaskDesc("");
     settaskDate("");
     setassignTo("");
     setcategory("");
   };
+
+
   return (
     <div className="p-5 bg-[#e9cdcd] mt-7 rounded">
       <form
-        onSubmit={(e) => submitHandler(e)}
+        onSubmit={submitHandler}
         className="flex flex-wrap w-full items-start justify-between"
         action=""
       >

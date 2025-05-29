@@ -4,7 +4,7 @@ import CompleteTask from "./CompleteTask";
 import FilledTask from "./FilledTask";
 import NewTask from "./NewTask";
 
-const TaskList = ({ data }) => {
+const TaskList = ({ data, onUpdateTaskStatus }) => {
   return (
     <div
       id="tasklist"
@@ -12,19 +12,30 @@ const TaskList = ({ data }) => {
     >
       {data.tasks.map((elem, id) => {
         if (elem.active) {
-          return <AcceptTask elem={elem} key={id} />;
+          return (
+            <AcceptTask
+              key={id}
+              elem={elem}
+              onUpdateTaskStatus={onUpdateTaskStatus}
+            />
+          );
         }
         if (elem.newTask) {
-          return <NewTask elem={elem} key={id} />;
+          return <NewTask key={id} elem={elem}
+                        onUpdateTaskStatus={onUpdateTaskStatus}
+ />;
         }
-
         if (elem.completed) {
-          return <CompleteTask elem={elem} key={id} />;
+          return <CompleteTask key={id} elem={elem}
+                        onUpdateTaskStatus={onUpdateTaskStatus}
+ />;
         }
-
         if (elem.failed) {
-          return <FilledTask elem={elem} key={id} />;
+          return <FilledTask key={id} elem={elem} 
+                        onUpdateTaskStatus={onUpdateTaskStatus}
+/>;
         }
+        return null;
       })}
     </div>
   );

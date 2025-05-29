@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-const NewTask = ({ elem }) => {
+const NewTask = ({ elem ,onUpdateTaskStatus }) => {
   return (
     <div className="flex-shrink-0 h-full w-[300px] p-5 bg-red-400 rounded-xl text-9xl font-medium justify-between text-justify">
       <div className="flex justify-between items-center">
@@ -11,7 +11,9 @@ const NewTask = ({ elem }) => {
       <h2 className="mt-5 text-2xl font-semibold">{elem.title}</h2>
       <p className="text-sm mt-4">{elem.description}</p>
       <div className="flex justify-center mt-10 gap-3">
-        <button className="bg-yellow-400 py-1 px-2 text-sm rounded-lg">
+        <button 
+        onClick={() => onUpdateTaskStatus(elem.title, "active")}
+        className="bg-yellow-400 py-1 px-2 text-sm rounded-lg">
           Accept Task
         </button>
       </div>
