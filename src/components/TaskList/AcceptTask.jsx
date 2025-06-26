@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 const AcceptTask = ({ elem, onUpdateTaskStatus }) => {
   const handleMarkCompleted = () => {
     onUpdateTaskStatus(elem.title, "completed");

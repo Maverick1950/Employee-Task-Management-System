@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 const CompleteTask = ({ elem,onUpdateTaskStatus  }) => {
   return (
     <div className="flex-shrink-0 h-full w-[300px] p-5 bg-blue-400 rounded-xl text-9xl font-medium justify-between text-justify">

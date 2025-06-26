@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import AcceptTask from "./AcceptTask";
 import CompleteTask from "./CompleteTask";
 import FilledTask from "./FilledTask";
